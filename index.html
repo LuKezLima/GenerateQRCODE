@@ -15,7 +15,7 @@
     <div id="app">
         <h1>{{title}}</h1>
         <div>
-            <input type="text" size="25" @input="onData" placeholder="Digite para gerar..." v-model="text">
+            <input type="text" size="25" @input="onData" placeholder="Digite para gerar..." :value="text">
     
         </div>
 
@@ -39,6 +39,11 @@
                     return this.qrcode.toDataURL()
                 }
             },
+            methods: {
+                onData(event){
+                    this.text = event.target.value
+                }
+            }
         })
     </script> 
 </body>
